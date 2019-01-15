@@ -1,5 +1,7 @@
 #include "ofApp.h"
 
+//ofDrawRectangle(x, y, width, height);
+
 //--------------------------------------------------------------
 void ofApp::setup(){
 
@@ -12,6 +14,8 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    
+    ofDrawRectangle(20, 20, 100, 30);
 
 }
 
