@@ -25,7 +25,7 @@ int main() {
     
     int choice = 0;
     
-    cout << "Enter a number between 1 and 6" << endl;
+    cout << "Type a number between 1 and 6 and then press enter" << endl;
     cin >> choice;
     
     if (choice == 1){
@@ -59,6 +59,7 @@ int main() {
  
 
     }else if (choice == 2){
+        cout << "Your choice was 2 - printing the total number of tweets that mention the word MONEY" << endl;
 
         // Counting total number of tweets that mention the word "MONEY"
         
