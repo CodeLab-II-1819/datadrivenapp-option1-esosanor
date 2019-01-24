@@ -25,7 +25,7 @@ int main() {
     
     int choice = 0;
     
-    cout << "Type a number between 1 and 6 and then press enter" << endl;
+    cout << "Type a number between 1 and 10 and then press enter." << endl;
     cin >> choice;
     
     if (choice == 1){
@@ -170,9 +170,92 @@ int main() {
     }
     inFile.close();
     
+        
+    }else if (choice == 7){
+        
+        // Printing to the screen any tweets mentioning the word “LOVE”
+        
+        int loveCount = 0;
+        // counter for word UBER
+        
+        inFile.open("sampleTweets.csv");  //opening the file
+        if (inFile.good()){    // checks file is opened correctly
+            while (!inFile.eof()){  // instructions for what to while file is opened
+                getline(inFile, currentLine);
+                
+                if(currentLine.find("love")<=currentLine.length()){
+                    cout << currentLine << endl;
+                    loveCount ++;
+                }
+                
+            }
+        }
+        inFile.close();
+        
 
-   
+    }else if (choice == 8){
+        
+        // Printing to the screen any tweets mentioning the word “UNIVERSITY”
+        
+        int uniCount = 0;
+        // counter for word UNIVERSITY
+        
+        inFile.open("sampleTweets.csv");  //opening the file
+        if (inFile.good()){    // checks file is opened correctly
+            while (!inFile.eof()){  // instructions for what to while file is opened
+                getline(inFile, currentLine);
+                
+                if(currentLine.find("university")<=currentLine.length()){
+                    cout << currentLine << endl;
+                    uniCount ++;
+                }
+                
+            }
+        }
+        inFile.close();
     
+    }else if (choice == 9){
+        
+        // Printing to the screen any tweets mentioning the word “PHONE”
+        
+        int phoneCount = 0;
+        // counter for word PHONE
+        
+        inFile.open("sampleTweets.csv");  //opening the file
+        if (inFile.good()){    // checks file is opened correctly
+            while (!inFile.eof()){  // instructions for what to while file is opened
+                getline(inFile, currentLine);
+                
+                if(currentLine.find("Phone")<=currentLine.length()){
+                    cout << currentLine << endl;
+                    phoneCount ++;
+                }
+                
+            }
+        }
+        inFile.close();
+        
+        
+    }else if (choice == 10){
+        
+        // Printing to the screen any tweets mentioning the word “PIZZA”
+        
+        int pizzaCounter = 0;
+        // counter for word PIZZA
+        
+        inFile.open("sampleTweets.csv");  //opening the file
+        if (inFile.good()){    // checks file is opened correctly
+            while (!inFile.eof()){  // instructions for what to while file is opened
+                getline(inFile, currentLine);
+                
+                if(currentLine.find("Pizza")<=currentLine.length()){
+                    cout << currentLine << endl;
+                    pizzaCounter ++;
+                }
+                
+            }
+        }
+        inFile.close();
     cout << "Hello" << endl;
     return 0;
 }

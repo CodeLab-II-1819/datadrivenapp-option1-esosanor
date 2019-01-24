@@ -21,4 +21,9 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+    ofTrueTypeFont myfont;
+    string titles[10] = {"Total number of tweets", "Money", "Politics", "Paris", "DreamWorks", "Uber", "Love", "University", "Phone ", "Pizza"};
+    
+    int padding = 20;
+    
 };
