@@ -1,17 +1,18 @@
 #include "ofApp.h"
-
-//ofDrawRectangle(x, y, width, height);
+#include "tweets.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
     //called once
     myfont.load("fonts/Lush.ttf", 22);
+    for (int i = 0; i < 5; i++) {
+        tweets[i].setup("hello", 530, 180*i);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     //called 60 times a second
-
 }
 
 //--------------------------------------------------------------
@@ -40,74 +41,10 @@ void ofApp::draw(){
         
         ofSetColor(0,0,0); // black
         ofDrawBitmapString("To choose an option type a number between 1 and 10 and press enter", 60, 130);
-    
-    
     }
     
-    
-    //ofDrawRectangle(x, y, width, height);
-    //ofDrawRectangle(20, 20, 100, 30);
-    
-    //ofDrawBitmapString(Text, x, y);
-    //ofDrawBitmapString("Hello World", 300, 300);
-    
-    //ofSetColor(red, green, blue);
-    //ofSetColor(255, 0, 0);
-   // ofDrawRectangle(20, 20, 100, 30);
-
-}
-
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
+    for (int i = 0; i < 5; i++) {
+        tweets[i].draw();
+    }
 
 }

@@ -1,262 +1,67 @@
-//
-//  main.cpp
-//  Data Driven App
-//
-//  Created by Esosa on 10/12/2018.
-//  Copyright © 2018 Mac user. All rights reserved.
-//
-
-
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 using namespace std;
 
 string currentLine;
 ifstream inFile;
+vector<string> Allteewts;
+vector<string> foundTweets;
 
 int numberOfLines = 0;
 
+string optionsToSearch[10] = {"", "Money", "Politics", "Paris", "DreamWorks", "Uber", "Love", "https:", "University", "pizza"};
+
 int main() {
-//    ofstream datadrivenapp;
-//    datadrivenapp.open("myfile.txt");
-//    datadrivenapp << "Writing this to a file.\n";
-//    datadrivenapp.close();
+    int choice;
     
-    int choice = 0;
-    
-    cout << "Type a number between 1 and 10 and then press enter." << endl;
-    cin >> choice;
-    
-    if (choice == 1){
-        cout << "Your choice was 1 - printing the total number of tweets" << endl;
-        
-        //Opening the file
-        inFile.open("sampleTweets.csv");
-        
-        // checks to see if file has loaded in
-    if (inFile.good()){
-            cout << "The file has loaded" << endl; // will print this if file successfully loads in
-            
-            
-            //Counting the total number of lines that are in the file
-            while (!inFile.eof()){
-                numberOfLines ++;
-                getline(inFile, currentLine);
-            }
-            //Printing out the total number of lines that are in the file
-            cout << "Number of lines: " << numberOfLines << endl;
-            
-            //Printing out the amount of tweets that mention a given word.
-            for (int i = 0; i < numberOfLines; i++){
-                getline(inFile, currentLine);
-            }
-            
-        }else {
-            cout << "The file hasn't loaded" << endl;
-        }
-        inFile.close();
- 
-
-    }else if (choice == 2){
-        cout << "Your choice was 2 - printing the total number of tweets that mention the word MONEY" << endl;
-
-        // Counting total number of tweets that mention the word "MONEY"
-        
-        
-        int moneyCount = 0; // counter for word money
-        
-        inFile.open("sampleTweets.csv");  //opening the file
-        if (inFile.good()){    // checks file is opened correctly
-            while (!inFile.eof()){  // instructions for what to while file is opened
-                getline(inFile, currentLine);
-                
-                if(currentLine.find("money")<=currentLine.length()){
-                    moneyCount ++;
+    do {
+        choice = NULL;
+            inFile.open("sampleTweets.csv");
+            if (inFile.good()) {
+                while (!inFile.eof()){
+                    string str; //declare a string for storage
+                    getline(inFile, str); //get a line from the file, put it in the string
+                    Allteewts.push_back(str);
                 }
-                
             }
-        }
-        inFile.close();
         
+            cout << "Options: " << endl;
+            cout << "1:     Show all tweets and cound them" << endl;
+            cout << "2:     Show all tweets with the word Money and count" << endl;
+            cout << "3:     Show all tweets with the word Politics and count" << endl;
+            cout << "4:     Show all tweets with the word Paris and count" << endl;
+            cout << "5:     Show all tweets with the word DreamWorks and count" << endl;
+            cout << "6:     Show all tweets with the word Uber and count" << endl;
+            cout << "7:     Show all tweets with the word love and count" << endl;
+            cout << "8:     Show all tweets with images in them and count" << endl;
+            cout << "9:     Show all tweets with the word University and count" << endl;
+            cout << "10:    Show all tweets with the word pizza and count" << endl;
+            cout << "" << endl;
+            cout << "Please input your option: "; cin >> choice;
+            cout << "" << endl;
+            cout << "Running your query!"<< endl;
+            cout << "" << endl;
         
-        cout <<"Total  number of tweets that mention money: " << moneyCount << endl;
-        
-    }else if (choice == 3){
-    
-
-
-    // Counting total number of tweets that mention the word "POLITICS"
-    
-    int politicsCount = 0; // counter for word POLITICS
-    
-    inFile.open("sampleTweets.csv");  //opening the file
-    if (inFile.good()){    // checks file is opened correctly
-        while (!inFile.eof()){  // instructions for what to while file is opened
-            getline(inFile, currentLine);
-            
-            if(currentLine.find("politics")<=currentLine.length()){
-                politicsCount ++;
-            }
-            
-        }
-    }
-    inFile.close();
-    
-    cout <<"Total number of tweets that mention politics: " << politicsCount << endl;
-    
-    }else if (choice == 4){
-
-
-    // Printing to the screen any tweets mentioning the word “PARIS”
-
-    int parisCount = 0;
-    // counter for word PARIS
-    
-    inFile.open("sampleTweets.csv");  //opening the file
-    if (inFile.good()){    // checks file is opened correctly
-        while (!inFile.eof()){  // instructions for what to while file is opened
-            getline(inFile, currentLine);
-            
-            if(currentLine.find("paris")<=currentLine.length()){
-                cout << currentLine << endl;
-                parisCount ++;
-            }
-            
-        }
-    }
-    inFile.close();
-    
-    
-    }else if (choice == 5){
-
-        // Printing to the screen any tweets mentioning the word “DREAMWORKS”
-    
-    int dreamworksCount = 0;
-    // counter for word DREAMWORKS
-    
-    inFile.open("sampleTweets.csv");  //opening the file
-    if (inFile.good()){    // checks file is opened correctly
-        while (!inFile.eof()){  // instructions for what to while file is opened
-            getline(inFile, currentLine);
-            
-            if(currentLine.find("DreamWorks")<=currentLine.length()){
-                cout << currentLine << endl;
-                dreamworksCount ++;
-            }
-            
-        }
-    }
-    inFile.close();
-    
-    }else if (choice == 6){
-
-        // Printing to the screen any tweets mentioning the word “UBER”
-    
-    int uberCount = 0;
-    // counter for word UBER
-    
-    inFile.open("sampleTweets.csv");  //opening the file
-    if (inFile.good()){    // checks file is opened correctly
-        while (!inFile.eof()){  // instructions for what to while file is opened
-            getline(inFile, currentLine);
-            
-            if(currentLine.find("Uber")<=currentLine.length()){
-                cout << currentLine << endl;
-                uberCount ++;
-            }
-            
-        }
-    }
-    inFile.close();
-    
-        
-    }else if (choice == 7){
-        
-        // Printing to the screen any tweets mentioning the word “LOVE”
-        
-        int loveCount = 0;
-        // counter for word UBER
-        
-        inFile.open("sampleTweets.csv");  //opening the file
-        if (inFile.good()){    // checks file is opened correctly
-            while (!inFile.eof()){  // instructions for what to while file is opened
-                getline(inFile, currentLine);
-                
-                if(currentLine.find("love")<=currentLine.length()){
-                    cout << currentLine << endl;
-                    loveCount ++;
+            for (int i = 0; i < Allteewts.size(); i++) {
+                if(Allteewts[i].find(optionsToSearch[choice-1])<=Allteewts[i].length()){
+                    foundTweets.push_back(Allteewts[i]);
                 }
-                
             }
-        }
-        inFile.close();
-        
 
-    }else if (choice == 8){
-        
-        // Printing to the screen any tweets mentioning the word “UNIVERSITY”
-        
-        int uniCount = 0;
-        // counter for word UNIVERSITY
-        
-        inFile.open("sampleTweets.csv");  //opening the file
-        if (inFile.good()){    // checks file is opened correctly
-            while (!inFile.eof()){  // instructions for what to while file is opened
-                getline(inFile, currentLine);
-                
-                if(currentLine.find("university")<=currentLine.length()){
-                    cout << currentLine << endl;
-                    uniCount ++;
-                }
-                
+            for (int i = 0; i < foundTweets.size(); i++) {
+                cout << foundTweets[i] << endl;
+                cout << "" << endl;
             }
-        }
-        inFile.close();
+        
+            cout << "Total number of tweets found: " << foundTweets.size() << endl;
+        
+        cout << "" << endl;
+        cout << "1. Search again: " << endl;
+        cout << "2. Exit the program: " << endl;
+        cout << "" << endl;
+        cout << "Option: "; cin >> choice;
     
-    }else if (choice == 9){
-        
-        // Printing to the screen any tweets mentioning the word “PHONE”
-        
-        int phoneCount = 0;
-        // counter for word PHONE
-        
-        inFile.open("sampleTweets.csv");  //opening the file
-        if (inFile.good()){    // checks file is opened correctly
-            while (!inFile.eof()){  // instructions for what to while file is opened
-                getline(inFile, currentLine);
-                
-                if(currentLine.find("Phone")<=currentLine.length()){
-                    cout << currentLine << endl;
-                    phoneCount ++;
-                }
-                
-            }
-        }
-        inFile.close();
-        
-        
-    }else if (choice == 10){
-        
-        // Printing to the screen any tweets mentioning the word “PIZZA”
-        
-        int pizzaCounter = 0;
-        // counter for word PIZZA
-        
-        inFile.open("sampleTweets.csv");  //opening the file
-        if (inFile.good()){    // checks file is opened correctly
-            while (!inFile.eof()){  // instructions for what to while file is opened
-                getline(inFile, currentLine);
-                
-                if(currentLine.find("Pizza")<=currentLine.length()){
-                    cout << currentLine << endl;
-                    pizzaCounter ++;
-                }
-                
-            }
-        }
-        inFile.close();
-    cout << "Hello" << endl;
-    return 0;
-}
+    } while(choice != 2);
 }

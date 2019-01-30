@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "tweets.h"
+#include "string"
 
 class ofApp : public ofBaseApp{
 
@@ -8,22 +10,12 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
-
-		void keyPressed(int key);
-		void keyReleased(int key);
-		void mouseMoved(int x, int y );
-		void mouseDragged(int x, int y, int button);
-		void mousePressed(int x, int y, int button);
-		void mouseReleased(int x, int y, int button);
-		void mouseEntered(int x, int y);
-		void mouseExited(int x, int y);
-		void windowResized(int w, int h);
-		void dragEvent(ofDragInfo dragInfo);
-		void gotMessage(ofMessage msg);
 		
     ofTrueTypeFont myfont;
     string titles[10] = {"Total number of tweets", "Money", "Politics", "Paris", "DreamWorks", "Uber", "Love", "University", "Phone ", "Pizza"};
     
     int padding = 20;
+    
+    Tweets tweets[5];
     
 };
