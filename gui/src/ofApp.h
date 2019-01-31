@@ -12,10 +12,10 @@ class ofApp : public ofBaseApp{
 		void draw();
 		
     ofTrueTypeFont myfont;
-    string titles[10] = {"Total number of tweets", "Money", "Politics", "Paris", "DreamWorks", "Uber", "Love", "University", "Phone ", "Pizza"};
+    string titles[10] = {"Total number of tweets", "Money", "Politics", "Paris", "DreamWorks", "Uber", "Love", "Tweets with Images", "University",  "Pizza"};
     
     int padding = 20;
     
-    Tweets tweets[5];
+    Tweets tweets[7];
     
 };

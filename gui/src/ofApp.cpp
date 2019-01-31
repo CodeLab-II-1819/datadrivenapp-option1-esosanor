@@ -5,8 +5,8 @@
 void ofApp::setup(){
     //called once
     myfont.load("fonts/Lush.ttf", 22);
-    for (int i = 0; i < 5; i++) {
-        tweets[i].setup("hello", 530, 180*i);
+    for (int i = 0; i < 6; i++) {
+        tweets[i].setup("Date goes here", "Message goes here", "Link to new page goes here", 530, 120 + 90*i);
     }
 }
 
@@ -40,10 +40,11 @@ void ofApp::draw(){
         ofDrawBitmapString(titles[i], 100, 185+ i*50); // options
         
         ofSetColor(0,0,0); // black
-        ofDrawBitmapString("To choose an option type a number between 1 and 10 and press enter", 60, 130);
+        ofDrawBitmapString("To choose an option type a number between", 60, 130);
+        ofDrawBitmapString("1 and 10 and press enter.", 60, 150);
     }
     
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 6; i++) {
         tweets[i].draw();
     }
 

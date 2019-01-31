@@ -4,14 +4,29 @@
 #include <vector>
 using namespace std;
 
-string currentLine;
-ifstream inFile;
-vector<string> Allteewts;
-vector<string> foundTweets;
+string currentLine; // gets current line
+ifstream inFile; // accesses the file
+vector<string> Alltweets; // gets all tweets
+vector<string> foundTweets; // displays tweets searched for
 
 int numberOfLines = 0;
 
 string optionsToSearch[10] = {"", "Money", "Politics", "Paris", "DreamWorks", "Uber", "Love", "https:", "University", "pizza"};
+
+static void tweetChoice(int choice) { // loop thru all tweets
+    for (int i = 0; i < Alltweets.size(); i++) {
+        if(Alltweets[i].find(optionsToSearch[choice-1])<=Alltweets[i].length()){ // checks if strings are in the tweet and puts it into new array
+            foundTweets.push_back(Alltweets[i]);
+        }
+    }
+    
+    for (int i = 0; i < foundTweets.size(); i++) {
+        cout << foundTweets[i] << endl;
+        cout << "" << endl;
+    }
+    
+    cout << "Total number of tweets found: " << foundTweets.size() << endl;
+}
 
 int main() {
     int choice;
@@ -23,12 +38,12 @@ int main() {
                 while (!inFile.eof()){
                     string str; //declare a string for storage
                     getline(inFile, str); //get a line from the file, put it in the string
-                    Allteewts.push_back(str);
+                    Alltweets.push_back(str);
                 }
             }
         
             cout << "Options: " << endl;
-            cout << "1:     Show all tweets and cound them" << endl;
+            cout << "1:     Show all tweets and count them" << endl;
             cout << "2:     Show all tweets with the word Money and count" << endl;
             cout << "3:     Show all tweets with the word Politics and count" << endl;
             cout << "4:     Show all tweets with the word Paris and count" << endl;
@@ -44,18 +59,7 @@ int main() {
             cout << "Running your query!"<< endl;
             cout << "" << endl;
         
-            for (int i = 0; i < Allteewts.size(); i++) {
-                if(Allteewts[i].find(optionsToSearch[choice-1])<=Allteewts[i].length()){
-                    foundTweets.push_back(Allteewts[i]);
-                }
-            }
-
-            for (int i = 0; i < foundTweets.size(); i++) {
-                cout << foundTweets[i] << endl;
-                cout << "" << endl;
-            }
-        
-            cout << "Total number of tweets found: " << foundTweets.size() << endl;
+            tweetChoice(choice);
         
         cout << "" << endl;
         cout << "1. Search again: " << endl;
